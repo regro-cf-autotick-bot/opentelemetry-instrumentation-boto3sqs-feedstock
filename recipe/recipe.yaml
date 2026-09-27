@@ -2,17 +2,15 @@
 schema_version: 1
 
 context:
-  version: "0.64b0"
+  version: 0.66b0
 
 package:
   name: opentelemetry-instrumentation-boto3sqs
   version: ${{ version }}
 
 source:
-  url: 
-    https://pypi.org/packages/source/o/opentelemetry-instrumentation-boto3sqs/opentelemetry_instrumentation_boto3sqs-${{
-    version }}.tar.gz
-  sha256: 35dbf801f8921c65ce40b917f2e9e32cffd3538c10d9498ad0ee672c5909720f
+  url: https://pypi.org/packages/source/o/opentelemetry-instrumentation-boto3sqs/opentelemetry_instrumentation_boto3sqs-${{ version }}.tar.gz
+  sha256: 00b2506154864b9fd4e8431f990580f73b5ada502dedbafbc8468480244d78a8
 
 build:
   number: 0
@@ -30,8 +28,8 @@ requirements:
     - opentelemetry-instrumentation ==${{ version }}
     - opentelemetry-semantic-conventions ==${{ version }}
     - wrapt >=1.0.0,<3.0.0
-    - boto3 >=1.0.0,<2.0.0
-
+    - opentelemetry-semantic-conventions ==0.66b0
+    - opentelemetry-instrumentation ==0.66b0
 tests:
   - python:
       imports:
@@ -40,11 +38,10 @@ tests:
       pip_check: true
       python_version:
         - ${{ python_min }}.*
-        - "*"
+        - '*'
 
 about:
-  homepage: 
-    https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-boto3sqs
+  homepage: https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-boto3sqs
   license: Apache-2.0
   license_file: LICENSE
   summary: Boto3 SQS service tracing for OpenTelemetry
